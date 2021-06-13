@@ -1,25 +1,28 @@
 // PSEUDOCODE
 
-// Generate an empty list
-// Iterate over the list until it's filled
-// For each iteration generate a random number
-// Round the number so only integers are returned
-// Add 1 so 0 is never returned
-// Run a check to see if the number already exists in the list, if it does not then push it to the end of the list
+// Generate a list of 1 to 10000 in order
+// Iterate over the list starting from the end
+// Get random number ranging between 0 and current list length
+// floor the number so the list shrinks during each iteration
+// Swap the element at the end with the element of the randomly generated index
+// Shrink the list and repeat the same steps until the entire array is shuffled
 
 
 // ALGORITHM ANALYSIS
 
-// Because the size of the list is bounded by a value and does not grow based on inputs, this algorithm runs in O(1) Space.
-// The number of iterations are bounded by a value, but because the each value needs to be ran through a check this algorithm runs in O(n) Time.
+// The array is sorted in place and doesn't generate a new array, this means the algorithm uses O(1) Space.
+// The the number of iterations dependent on the list size, this means the algorithm runs in O(n) Time.
 
-const generateList = () => {
-  let arr = [];
-  while(arr.length < 10000){
-    const num = Math.floor(Math.random() * 10000) + 1;
-    if(arr.indexOf(num) === -1) arr.push(num);
+const shuffle = () => {
+  let list = Array.from({length: 10000}, (_, i) => i + 1);
+  let i = list.length, j, temp;
+  while (--i > 0) {
+    j = Math.floor(Math.random() * (i + 1)); 
+    temp = list[j];
+    list[j] = list[i];
+    list[i] = temp;
   }
-  console.log(arr);
+  console.log(list)
 }
 
-generateList()
+shuffle()
