@@ -3,7 +3,7 @@
 // Generate a list of 1 to 10000 in order
 // Iterate over the list starting from the end
 // Get random number ranging between 0 and current list length
-// floor the number so the list shrinks during each iteration
+// floor the number so the generated index is within range
 // Swap the element at the end with the element of the randomly generated index
 // Shrink the list and repeat the same steps until the entire array is shuffled
 
