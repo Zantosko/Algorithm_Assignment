@@ -11,7 +11,7 @@
 // ALGORITHM ANALYSIS
 
 // The array is sorted in place and doesn't generate a new array, this means the algorithm uses O(1) Space.
-// The the number of iterations dependent on the list size, this means the algorithm runs in O(n) Time.
+// The number of iterations dependent on the list size, this means the algorithm runs in O(n) Time.
 
 const shuffle = () => {
   let list = Array.from({length: 10000}, (_, i) => i + 1);
